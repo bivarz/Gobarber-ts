@@ -10,9 +10,9 @@ const appointmentsRouter = Router();
 
 // interface é para descobrir o tipo de uma info composta
 
-appointmentsRouter.get('/', (req, res) => {
+appointmentsRouter.get('/', async (req, res) => {
   const appoimentsRepository = getCustomRepository(AppoimentsRepository);
-  const appointments = appoimentsRepository.find();
+  const appointments = await appoimentsRepository.find();
 
   return res.json(appointments);
 });
@@ -22,6 +22,7 @@ appointmentsRouter.post('/', async (req, res) => {
     const { provider, date } = req.body;
 
     const parserdDate = parseISO(date);
+
     const createAppointment = new CreateAppointmentService();
     const appointment = await createAppointment.execute({
       provider,
