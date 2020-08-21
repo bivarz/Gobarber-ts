@@ -9,8 +9,5 @@ export default class AlterProvider1597692054955 implements MigrationInterface {
     );
   }
 
-  public async down(queryRunner: QueryRunner): Promise<void> {
-
-    await
-   }
+  public async down(queryRunner: QueryRunner): Promise<void> { }
 }
